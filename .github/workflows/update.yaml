@@ -10,13 +10,13 @@ on:
     - cron: '0 7 * * *'
 
 jobs:
-  numpy-test:
+  update_data:
     runs-on: ubuntu-latest
     steps:
       - name: Check out this repo
         uses: actions/checkout@v2
         with:
-          fetch-depth: 0 # This fetches all history so you can handle merges if needed
+          fetch-depth: 0 
 
       - name: Pull latest changes
         run: git pull
@@ -24,8 +24,7 @@ jobs:
       - name: Setup Python
         uses: actions/setup-python@v2
         with:
-          python-version: '3.8'
-          architecture: 'x64'
+          python-version: '3.9'
 
       - name: Install necessary Python packages
         run: pip install pandas requests datetime re numpy
