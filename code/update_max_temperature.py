@@ -14,7 +14,7 @@ file_name = './date/day_temperature_master.csv'
 
 
 # this is master file
-df = pd.read_csv(file_name, index_col='num')
+df = pd.read_csv(file_name, index_col=0)
 df['date'] = pd.to_datetime(df['date'])
 
 df = df.sort_values(['date', 'city'])
@@ -52,5 +52,5 @@ else:
 order = {'東京': 0, '名古屋': 1, '大阪': 2}
 df_merge['sort_key'] = df_merge['city'].map(order)
 df_merge = df_merge.sort_values('sort_key').drop('sort_key', axis=1)
-df_merge = df_merge.set_axis(['num', '2023年', '平年値', 'city', '24年'], axis=1)
+df_merge = df_merge.set_axis(['num', 'date', '2023年', '平年値', 'city', '24年'], axis=1)
 df_merge.to_csv(file_name)
