@@ -24,12 +24,12 @@ df_max = pd.read_csv('https://www.data.jma.go.jp/stats/data/mdrr/tem_rct/alltabl
 city_code = ['44132', '62078', '51106']
 df_main = df_max[df_max['観測所番号'].isin(city_code)]
 
-df_main.loc[:, ['name', 'kana']] = df_main['地点'].apply(lambda x: pd.Series(split_city_year(x)))
+df_main.loc[:, ['city', 'kana']] = df_main['地点'].apply(lambda x: pd.Series(split_city_year(x)))
 df_name = df_main['地点'].apply(lambda x: pd.Series(split_city_year(x)))
-df_name = df_name.set_axis(['name', 'kana'], axis=1)
+df_name = df_name.set_axis(['city', 'kana'], axis=1)
 df_main = pd.concat([df_name, df_main], axis=1)
 
-df_main = df_main.iloc[:, [0, 11]].set_axis(['name', '24年'], axis=1)
+df_main = df_main.iloc[:, [0, 11]].set_axis(['city', '24年'], axis=1)
 
 # what day
 current_year = datetime.now().year
