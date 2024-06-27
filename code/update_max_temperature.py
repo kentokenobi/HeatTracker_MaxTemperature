@@ -10,7 +10,7 @@ def split_city_year(city):
         return match.groups()
     return city, None
 
-file_name = './code/update_max_temperature.py'
+file_name = '.code/update_max_temperature.py'
 
 
 # this is master file
