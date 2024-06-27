@@ -49,4 +49,5 @@ if '24年_new' in df_merge.columns:
 else:
     pass
 
+df_merge = df_merge.sort_values('city', ascending=False)
 df_merge.to_csv(file_name)
