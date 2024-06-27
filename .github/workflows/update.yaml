@@ -1,0 +1,24 @@
+name: update
+
+on:
+  push:
+    branches: 
+      - main
+  workflow_dispatch:
+  schedule:
+    - cron: '0 7 * * *'
+
+jobs:
+  numpy-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.8'
+          architecture: 'x64'
+      - name: Install necessary Python packages
+        run: pip install pandas datetime re numpy
+      - name: Run Python
+        run: python ./code/update_max_temperature.py
