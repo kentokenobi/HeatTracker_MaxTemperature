@@ -27,7 +27,7 @@ jobs:
           python-version: '3.9'
 
       - name: Install necessary Python packages
-        run: pip install pandas requests datetime re numpy
+        run: pip install pandas requests datetime numpy
 
       - name: Run Python
         run: python ./code/update_max_temperature.py
