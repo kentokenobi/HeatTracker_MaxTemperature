@@ -10,8 +10,11 @@ def split_city_year(city):
         return match.groups()
     return city, None
 
+file_name = './code/update_max_temperature.py'
+
+
 # this is master file
-df = pd.read_csv('/Users/kento-tanaka/Documents/取材関連/気候変動/気温/github_folder/day_temperature_stack_master.csv', index_col='num')
+df = pd.read_csv(file_name, index_col='num')
 df['date'] = pd.to_datetime(df['date'])
 
 df = df.sort_values(['date', 'city'])
@@ -42,4 +45,4 @@ df_merge = pd.merge(df, df_main, on=['city', 'date'], how='left', suffixes=('', 
 df_merge['24年'] = df_merge['24年'].combine_first(df_merge['24年_new'])
 
 df_merge = df_merge.drop(columns=['24年_new'])
-df_merge.to_csv('/Users/kento-tanaka/Documents/取材関連/気候変動/気温/github_folder/day_temperature_stack_master.csv')
+df_merge.to_csv(file_name)
