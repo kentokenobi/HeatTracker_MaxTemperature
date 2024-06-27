@@ -10,7 +10,7 @@ def split_city_year(city):
         return match.groups()
     return city, None
 
-file_name = '.date/day_temperature_master.csv'
+file_name = './date/day_temperature_master.csv'
 
 
 # this is master file
