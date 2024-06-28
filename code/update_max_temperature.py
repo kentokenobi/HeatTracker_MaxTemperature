@@ -53,4 +53,7 @@ order = {'東京': 0, '名古屋': 1, '大阪': 2}
 df_merge['sort_key'] = df_merge['city'].map(order)
 df_merge = df_merge.sort_values('sort_key').drop('sort_key', axis=1)
 df_merge = df_merge.set_axis(['date', '2023年', '平年値', 'city', '24年'], axis=1)
+
+df_merge_2 = df_merge.iloc[:, [0, 3, 4, 1, 2]]
 df_merge.to_csv(file_name)
+#df_merge_2.to_csv()
