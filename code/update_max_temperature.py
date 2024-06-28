@@ -57,5 +57,5 @@ df_merge = df_merge.set_axis(['date', '2023年', '平年値', 'city', '24年'], 
 
 df_merge.to_csv(file_name)
 #Flourish用に列入れ替え
-df_merge_2 = df_merge.iloc[:, [0, 3, 4, 1, 2]]
+df_merge_2 = df_merge.iloc[:, [0, 3, 2, 1, 4]]
 df_merge_2.to_csv(file_name_flourish)
